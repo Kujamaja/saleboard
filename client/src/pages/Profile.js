@@ -75,16 +75,14 @@ export default function Profile() {
     }
   };
 
-  const openEdit = (product) => {
-    setEditModal({
-      ...product,
-      price: (product.price_cents / 100).toFixed(2),
-      photoPreview: product.photo_url 
-        ? `${process.env.REACT_APP_API_URL}/uploads/${product.photo_url.split('/').pop()}`
-        : null,
-      newPhoto: null,
-    });
-  };
+const openEdit = (product) => {
+  setEditModal({
+    ...product,
+    price: (product.price_cents / 100).toFixed(2),
+    photoPreview: product.photo_url || null,
+    newPhoto: null,
+  });
+};
 
   const closeEdit = () => setEditModal(null);
 
